@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  n8n:
+    image: n8nio/n8n
+    restart: always
+    ports:
+      - "5678:5678"
+    environment:
+      - N8N_HOST=0.0.0.0
+      - N8N_SECURE_COOKIE=false
+    volumes:
+      - ./n8n-data:/home/node/.n8n
+
+  ai-app:
+    build: ./app
+    restart: always
+    ports:
+      - "5000:5000"
