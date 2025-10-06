@@ -25,7 +25,7 @@ pipeline {
 
         stage('Deploy Services') {
             steps {
-                echo 'Deploying n8n and the AI app using Docker Compose...'
+                echo 'Deploying AI app using Docker Compose...'
                 // This command stops any old containers and starts new ones with the latest code
                 sh "docker-compose down && docker-compose up -d"
             }
